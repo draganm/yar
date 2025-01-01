@@ -17,7 +17,7 @@ func main() {
 	app := &cli.App{
 		Name:                 "yar",
 		Usage:                "yaml archiver",
-		Args:                 true,
+		Args:                 false,
 		ArgsUsage:            "<directory>",
 		EnableBashCompletion: true,
 		Flags: []cli.Flag{
@@ -57,7 +57,7 @@ func main() {
 						return fmt.Errorf("error reading file %s: %w", path, err)
 					}
 
-					content[path] = b
+					content[path] = string(b)
 
 					return nil
 				},
